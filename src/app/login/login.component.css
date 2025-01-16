@@ -1,0 +1,6 @@
+form input, form textarea, form select {
+  display: flex;
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,19 @@
+<div class="alert alert-info">
+  <p>You can use the following to login.</p>
+  <ul>
+    <li><strong>Email:</strong> demo&#64;form.io</li>
+    <li><strong>Password:</strong> testing</li>
+  </ul>
+</div>
+<form [contentEditable]="editable" (change)="onChange($event)"
+      (submit)="onSubmit($event)">
+  <input type="text" placeholder="input text"/>
+  <textarea placeholder="multiple text" rows="10"></textarea>
+  <select>
+    <option></option>
+    <option>1</option>
+    <option>2</option>
+  </select>
+  <input type="button" value="CLICK"/>
+  <input type="submit" value="SUBMIT"/>
+</form>

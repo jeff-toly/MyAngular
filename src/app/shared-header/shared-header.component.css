@@ -1,0 +1,8 @@
+.header-div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-image: url('/assets/images/top_bg.png');
+}
