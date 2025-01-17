@@ -1,9 +1,12 @@
 {
-	"demo.interpolation.attribute-with-parameters": "Hello {{name}}, how are you?",
-	"demo.interpolation.id-as-content-with-parameters": "Hey {{name}}, how are things?",
-	"demo.interpolation.pipe-with-parameters": "Hello {{name}}, hope you're doing well!",
-	"demo.simple.text-as-attribute": "A simple text passing the ID as attribute. TW",
-	"demo.simple.text-as-content": "A simple test using the ID as content.",
-	"demo.simple.text-with-pipe": "A simple text using the pipe.",
-	"demo.title": "Translation Demo"
+	"demo.interpolation.attribute-with-parameters": "你好 {{name}}，你好嗎？",
+	"demo.interpolation.id-as-content-with-parameters": "嘿 {{name}}，怎麼樣？",
+	"demo.interpolation.pipe-with-parameters": "您好 {{name}}，希望您一切順利！",
+	"demo.paragraph": "<strong>BabelEdit</strong>！此翻譯編輯器是為 <strong>ngx-translate</strong>製作的 ",
+	"demo.simple.text-as-attribute": "將 ID 作為屬性傳遞的簡單文字。",
+	"demo.simple.text-as-content": "使用 ID 作為內容的簡單測試。",
+	"demo.simple.text-with-pipe": "使用管道的簡單文字。",
+	"demo.title": "翻譯演示",
+	"icu.pluralization": "{count, plural, =0{没有苹果} one{有一个苹果} other{有几个苹果}}。",
+	"icu.select": "{gender, select, male{他使用} female{她使用} other{他们使用}} {product}"
 }

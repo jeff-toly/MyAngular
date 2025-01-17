@@ -38,7 +38,7 @@ export class I18nComponent implements OnDestroy {
     this.translate.get(_('demo.interpolation.pipe-with-parameters'), {name: 'John'}).subscribe((text: string) => {
       console.log(`using get(): ${text}`);
 
-      // translations are alreaedy loaded - you can now use instant()
+      // translations are already loaded - you can now use instant()
       const text2 = this.translate.instant(_('demo.interpolation.pipe-with-parameters'), {name: 'John'})
       console.log(`using instant() inside the promise: ${text2}`);
     });
