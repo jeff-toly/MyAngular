@@ -7,6 +7,7 @@ import {ProfileEditorComponent} from './profile-editor/profile-editor.component'
 import {ActorFormComponent} from './actor-form/actor-form.component';
 import {ActorFormTemplateComponent} from './actor-form-template/actor-form-template.component';
 import {QuestionComponent} from './question/question.component';
+import {I18nComponent} from './i18n/i18n.component';
 
 export const routes: Routes = [
   {path: 'main', component: MainComponent},
@@ -17,4 +18,5 @@ export const routes: Routes = [
   {path: 'actor-form', component: ActorFormComponent},
   {path: 'actor-form-template', component: ActorFormTemplateComponent},
   {path: 'question', component: QuestionComponent},
+  {path: 'i18n', component: I18nComponent},
 ];

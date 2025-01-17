@@ -9,15 +9,32 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "zh-CN": {
+            "translation": "src/locale/messages.cn.json",
+            "baseHref": "zh-cn"
+          },
+          "zh-TW": {
+            "translation": "src/locale/messages.tw.json",
+            "baseHref": "zh-tw"
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "baseHref": "/zh-tw/",
+            "localize": true,
+            "i18nMissingTranslation": "error",
             "outputPath": "dist/hello-world",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -33,6 +50,12 @@
             "scripts": []
           },
           "configurations": {
+            "cn": {
+              "localize": ["zh-CN"]
+            },
+            "tw": {
+              "localize": ["zh-TW"]
+            },
             "production": {
               "budgets": [
                 {
@@ -59,6 +82,12 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
+            "cn": {
+              "buildTarget": "HelloWorld:build:development,cn"
+            },
+            "tw": {
+              "buildTarget": "HelloWorld:build:development,tw"
+            },
             "production": {
               "buildTarget": "HelloWorld:build:production"
             },
@@ -76,7 +105,8 @@
           "options": {
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/testing",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [

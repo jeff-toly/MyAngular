@@ -1,0 +1,51 @@
+<div class="title">
+  <h1>{{ 'demo.title' | translate }}</h1>
+  <span>Switch languages at runtime: </span>
+  <button (click)="useLanguage('en')">en</button>
+  <button (click)="useLanguage('cn')">cn</button>
+</div>
+<div>
+  <h3>Pluralization</h3>
+
+  <label for="count-select">Select count: </label>
+  <select id="count-select" [(ngModel)]="count" (change)="onCountChange($event)">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="5">5</option>
+  </select>
+
+  <p id="icuPluralization" translate="" [translateParams]="{count}">icu.pluralization</p>
+  <p>{{ 'icu.pluralization' | translate:{count} }}</p>
+
+  <h3>Selection</h3>
+
+  <label for="gender-select">Select Gender: </label>
+  <select id="gender-select" [(ngModel)]="gender" (change)="onGenderChange($event)">
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+    <option value="other">Other</option>
+  </select>
+
+  <p id="icuSelect" translate [translateParams]="{ gender, 'product': 'BabelEdit' }">icu.select</p>
+  <p>{{ 'icu.select' | translate:{gender, 'product': 'BabelEdit'} }}</p>
+</div>
+<div [innerHTML]="'demo.paragraph' | translate"></div>
+<p [translate]="'icu.pluralization'" [translateParams]="{count}"></p>
+<div>
+  <h2>Simple translations without parameters</h2>
+
+  <p>{{ 'demo.simple.text-with-pipe' | translate }}</p>
+
+  <p [translate]="'demo.simple.text-as-attribute'"></p>
+
+  <p translate>demo.simple.text-as-content</p>
+</div>
+<div>
+  <h2>Translations with parameters</h2>
+
+  <p>{{ 'demo.interpolation.pipe-with-parameters' | translate:{name} }}</p>
+
+  <p [translate]="'demo.interpolation.attribute-with-parameters'" [translateParams]="{name}"></p>
+
+  <p translate [translateParams]="{name}">demo.interpolation.id-as-content-with-parameters</p>
+</div>

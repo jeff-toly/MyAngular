@@ -1,0 +1,13 @@
+{
+  "demo.interpolation.attribute-with-parameters": "Hello {{name}}, how are you?",
+  "demo.interpolation.id-as-content-with-parameters": "Hey {{name}}, how are things?",
+  "demo.interpolation.pipe-with-parameters": "Hello {{name}}, hope you're doing well!",
+  "demo.simple.text-as-attribute": "A simple text passing the ID as attribute.",
+  "demo.simple.text-as-content": "A simple test using the ID as content.",
+  "demo.simple.text-with-pipe": "A simple text using the pipe.",
+  "demo.title": "Translation Demo",
+  "icu": {
+    "pluralization": "There {count, plural, =0{is no apple} one{is one apple} other{there are several apples}}.",
+    "select": "{gender, select, male{He uses} female{She uses} other{They use }} {product}"
+  }
+}

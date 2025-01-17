@@ -4,6 +4,7 @@ import {SharedHeaderComponent} from './shared-header/shared-header.component';
 import {SharedNavigationComponent} from './shared-navigation/shared-navigation.component';
 import {SharedContentComponent} from './shared-content/shared-content.component';
 import {SharedFooterComponent} from './shared-footer/shared-footer.component';
+import {TranslateModule} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ import {SharedFooterComponent} from './shared-footer/shared-footer.component';
     SharedHeaderComponent,
     SharedNavigationComponent,
     SharedContentComponent,
-    SharedFooterComponent
+    SharedFooterComponent,
+    TranslateModule
   ],
   templateUrl: './app.component.html',
   standalone: true,
