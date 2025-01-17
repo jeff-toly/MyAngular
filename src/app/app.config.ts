@@ -21,6 +21,7 @@ import {Observable, tap} from 'rxjs';
 import {TranslateCompiler, TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateMessageFormatCompiler} from 'ngx-translate-messageformat-compiler';
+import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 
 export function loggingInterceptor(req: HttpRequest<unknown>, next: HttpHandlerFn): Observable<HttpEvent<unknown>> {
   const reqWithHeader = req.clone({
@@ -88,6 +89,7 @@ export const appConfig: ApplicationConfig = {
         provide: TranslateCompiler,
         useClass: TranslateMessageFormatCompiler
       },
-    })])
+    })]),
+    provideAnimationsAsync(),
   ]
 };

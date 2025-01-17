@@ -3,7 +3,7 @@ import {TranslateDirective, TranslatePipe, TranslateService} from '@ngx-translat
 import { marker as _ } from '@colsen1991/ngx-translate-extract-marker';
 import {Subscription} from 'rxjs';
 import {FormsModule} from '@angular/forms';
-import defaultLanguage from '../../../public/i18n/en.json';
+import defaultLanguage from '../../../public/i18n/cn.json';
 
 @Component({
   selector: 'app-i18n',
@@ -17,10 +17,14 @@ import defaultLanguage from '../../../public/i18n/en.json';
 })
 export class I18nComponent implements OnDestroy {
   constructor(private readonly translate: TranslateService) {
-    this.translate.addLangs(['tw', 'cn', 'en']);
-    this.translate.setTranslation('en', defaultLanguage);
-    this.translate.setDefaultLang('en');
-    this.translate.use(this.translate.getBrowserLang() ?? "en");
+    const arr_lang = ['tw', 'cn', 'en'];
+
+    this.translate.addLangs(arr_lang);
+    this.translate.setTranslation('cn', defaultLanguage);
+    this.translate.setDefaultLang('cn');
+
+    const lang = this.translate.getBrowserLang();
+    this.translate.use(lang && arr_lang.includes(lang) ? lang : "cn");
 
     this.subscription = translate.stream(_('demo.interpolation.pipe-with-parameters'), {name: 'John'}).subscribe((text: string) => {
       console.log(`using stream(): ${text}`);
