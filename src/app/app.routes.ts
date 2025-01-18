@@ -1,5 +1,4 @@
 import {Routes} from '@angular/router';
-import {UserComponent} from './user/user.component';
 import {MainComponent} from './main/main.component';
 import {LoginComponent} from './login/login.component';
 import {NameEditorComponent} from './name-editor/name-editor.component';
@@ -9,6 +8,7 @@ import {ActorFormTemplateComponent} from './actor-form-template/actor-form-templ
 import {QuestionComponent} from './question/question.component';
 import {I18nComponent} from './i18n/i18n.component';
 import {OpenCloseComponent} from './open-close/open-close.component';
+import {UserComponent} from './user/user.component';
 
 export const routes: Routes = [
   {path: 'main', component: MainComponent, data: {animation: 'main'}},

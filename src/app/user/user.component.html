@@ -1,32 +1,5 @@
-<table>
-  <tr>
-    <th>A</th>
-    <td>
-      <textarea rows="10"></textarea>
-    </td>
-  </tr>
-  <tr>
-    <th>A</th>
-    <td>
-      <textarea rows="10"></textarea>
-    </td>
-  </tr>
-  <tr>
-    <th>A</th>
-    <td>
-      <textarea rows="10"></textarea>
-    </td>
-  </tr>
-  <tr>
-    <th>A</th>
-    <td>
-      <textarea rows="10"></textarea>
-    </td>
-  </tr>
-  <tr>
-    <th>A</th>
-    <td>
-      <textarea rows="10"></textarea>
-    </td>
-  </tr>
-</table>
+<div>
+  <h1>Parent Component</h1>
+  <input type="text" [(ngModel)]="user.userId"/>
+  <app-user-profile [userId]="user.userId"></app-user-profile>
+</div>

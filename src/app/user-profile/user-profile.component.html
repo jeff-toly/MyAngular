@@ -1,4 +1,5 @@
+<p>Received data: {{ userId() }}</p>
 <ng-container *ngIf="user$ | async as user">
-  <p>Name: {{ user.name }}</p>
-  <p>Biography: {{ user.biography }}</p>
+  <p>Name: {{ user.userName }}</p>
+  <p>Email: {{ user.mail }}</p>
 </ng-container>
