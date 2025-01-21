@@ -4,7 +4,7 @@ import {AsyncPipe, NgForOf, NgIf} from '@angular/common';
 import {UserService} from '../@core/service/user.service';
 import {User} from '../@core/model/user';
 import {FormsModule} from '@angular/forms';
-import {Base64ToHexPipe} from '../@core/pipe/base64ToHex.pipe';
+import {Base64ToHexPipe} from '../@core/pipe/base64-to-hex.pipe';
 
 @Component({
   selector: 'app-user-profile',

@@ -1,11 +1,10 @@
 import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
-  standalone: true,
-  name: 'base64ToHex',
+  name: 'base64ToHex'
 })
-
 export class Base64ToHexPipe implements PipeTransform {
+
   transform(base64: string): string {
     let raw = atob(base64);
     let res = '';
@@ -15,4 +14,5 @@ export class Base64ToHexPipe implements PipeTransform {
     }
     return res.toUpperCase();
   }
+
 }
