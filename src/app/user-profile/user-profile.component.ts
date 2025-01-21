@@ -1,4 +1,4 @@
-import {Component, effect, model, OnInit} from '@angular/core';
+import {Component, effect, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Observable} from 'rxjs';
 import {AsyncPipe, NgIf} from '@angular/common';
 import {UserService} from '../@core/service/user.service';
@@ -15,18 +15,24 @@ import {FormsModule} from '@angular/forms';
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.css'
 })
-export class UserProfileComponent implements OnInit {
-  userId = model('DD8719E3A711454BA4776AB8D0D52AE7');
-  user$!: Observable<User>;
+export class UserProfileComponent implements OnInit, OnChanges {
+  @Input() userId: any;
+  @Output() user$!: Observable<User>;
 
   constructor(private readonly userService: UserService) {
-    effect(() => {
-      if (!this.userId()) return;
-      this.user$ = this.userService.getUser(this.userId());
-    });
   }
 
   ngOnInit(): void {
-    this.user$ = this.userService.getUser(this.userId());
+    // this.user$ = this.userService.getUser(this.userId);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    // 检查inputData属性的变化
+    if (changes['userId']) {
+      console.log('userId changed:', changes['userId'].currentValue);
+      // 在这里可以添加对输入数据变化的处理逻辑
+      if (!this.userId) return;
+      this.user$ = this.userService.getUser(this.userId);
+    }
   }
 }

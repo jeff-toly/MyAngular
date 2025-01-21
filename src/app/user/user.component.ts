@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {UserProfileComponent} from '../user-profile/user-profile.component';
 import {FormsModule} from '@angular/forms';
 
@@ -12,5 +12,5 @@ import {FormsModule} from '@angular/forms';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  user = {userId: 'D26CF7ECBA0E42F7A2229910CF3ED704', userName: '', mail: ''};
+  @Input() user = {userId: 'D26CF7ECBA0E42F7A2229910CF3ED704', userName: '', email: ''};
 }

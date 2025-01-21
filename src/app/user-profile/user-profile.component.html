@@ -1,5 +1,5 @@
-<p>Received data: {{ userId() }}</p>
+<p>Received data: {{ userId }}</p>
 <ng-container *ngIf="user$ | async as user">
   <p>Name: {{ user.userName }}</p>
-  <p>Email: {{ user.mail }}</p>
+  <p>Email: {{ user.email }}</p>
 </ng-container>
