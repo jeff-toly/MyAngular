@@ -3,3 +3,9 @@
   <p>Name: {{ user.userName }}</p>
   <p>Email: {{ user.email }}</p>
 </ng-container>
+
+<ng-container *ngFor="let user of users$ | async">
+  <p>ID: {{ user.id | base64ToHex }}</p>
+  <p>Name: {{ user.userName }}</p>
+  <p>Email: {{ user.email }}</p>
+</ng-container>

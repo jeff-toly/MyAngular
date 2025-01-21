@@ -1,16 +1,19 @@
-import {Component, effect, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Observable} from 'rxjs';
-import {AsyncPipe, NgIf} from '@angular/common';
+import {AsyncPipe, NgForOf, NgIf} from '@angular/common';
 import {UserService} from '../@core/service/user.service';
 import {User} from '../@core/model/user';
 import {FormsModule} from '@angular/forms';
+import {Base64ToHexPipe} from '../@core/pipe/base64ToHex.pipe';
 
 @Component({
   selector: 'app-user-profile',
   imports: [
     AsyncPipe,
     NgIf,
-    FormsModule
+    FormsModule,
+    NgForOf,
+    Base64ToHexPipe
   ],
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.css'
@@ -18,12 +21,13 @@ import {FormsModule} from '@angular/forms';
 export class UserProfileComponent implements OnInit, OnChanges {
   @Input() userId: any;
   @Output() user$!: Observable<User>;
+  @Output() users$!: Observable<User[]>;
 
   constructor(private readonly userService: UserService) {
   }
 
   ngOnInit(): void {
-    // this.user$ = this.userService.getUser(this.userId);
+    this.users$ = this.userService.getUsers();
   }
 
   ngOnChanges(changes: SimpleChanges) {

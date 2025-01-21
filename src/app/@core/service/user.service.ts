@@ -11,4 +11,8 @@ export class UserService {
   getUser(id: string): Observable<any> {
     return this.dataService.getData(`user/${id}`);
   }
+
+  getUsers(): Observable<any[]> {
+    return this.dataService.getData(`users`);
+  }
 }
