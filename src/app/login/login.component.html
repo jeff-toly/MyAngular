@@ -6,14 +6,37 @@
   </ul>
 </div>
 <form [contentEditable]="editable" (change)="onChange($event)"
-      (submit)="onSubmit($event)">
-  <input type="text" placeholder="input text"/>
-  <textarea placeholder="multiple text" rows="10"></textarea>
-  <select>
-    <option></option>
-    <option>1</option>
-    <option>2</option>
+      (submit)="onSubmit($event)" #myTemplateForm="ngForm">
+  <p>{{ user | json }}</p>
+  <label for="userName">Name:</label>
+  <input id="userName" name="userName" [(ngModel)]="user.userName" #userName="ngModel" required/>
+  <div [hidden]="userName.valid || userName.pristine" class="alert alert-danger">
+    Name is required
+  </div>
+
+  <label for="email">Email:</label>
+  <input id="email" name="email" [(ngModel)]="user.email" #email="ngModel" required email/>
+  <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+    Email is required and like name&#64;foxconn.com
+  </div>
+
+  <label for="remark">Remark:</label>
+  <textarea id="remark" name="remark" [(ngModel)]="user.remark" rows="10" #remark="ngModel" required></textarea>
+  <div [hidden]="remark.valid || remark.pristine" class="alert alert-danger">
+    Remark is required
+  </div>
+
+  <label for="role">Role:</label>
+  <select id="role" name="role" [(ngModel)]="user.role" #role="ngModel" required>
+    <option *ngFor="let temp of roles" [value]="temp.value">
+      {{ temp.label }}
+    </option>
   </select>
-  <input type="button" value="CLICK"/>
-  <input type="submit" value="SUBMIT"/>
+  <div [hidden]="role.valid || role.pristine" class="alert alert-danger">
+    Role is required
+  </div>
+
+  <input type="button" (click)="changeForm()" value="{{ editable ? 'DISABLE': 'ENABLE' }}"/>
+  <input type="reset" value="RESET"/>
+  <input type="submit" [disabled]="!myTemplateForm.valid" value="SUBMIT"/>
 </form>

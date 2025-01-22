@@ -1,16 +1,31 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
+import {JsonPipe, NgForOf} from '@angular/common';
+import {User} from '../@core/model/user';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  imports: [],
+  imports: [
+    ReactiveFormsModule,
+    NgForOf,
+    FormsModule,
+    JsonPipe
+  ],
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  editable: boolean;
+  @Input() editable: boolean;
+  @Input() user: User = {id: '', userName: '', email: '', remark: '', role: ''};
+  @Input() roles = [
+    {value: '', label: '==Please Select=='},
+    {value: 'admin', label: 'Administrator'},
+    {value: 'common', label: 'Common User'},
+    {value: 'assignee', label: 'Assignee'}
+  ];
 
-  constructor() {
-    this.editable = true;
+  constructor(private readonly formBuilder: FormBuilder) {
+    this.editable = false;
   }
 
   onSubmit($event: SubmitEvent) {
@@ -19,5 +34,9 @@ export class LoginComponent {
 
   onChange($event: Event) {
     console.log('onChange', $event);
+  }
+
+  changeForm() {
+    this.editable = !this.editable;
   }
 }

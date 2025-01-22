@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Actor} from '../@core/model/actor';
-import {JsonPipe} from '@angular/common';
+import {JsonPipe, NgForOf} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 
 @Component({
@@ -8,7 +8,8 @@ import {FormsModule} from '@angular/forms';
   templateUrl: './actor-form.component.html',
   imports: [
     JsonPipe,
-    FormsModule
+    FormsModule,
+    NgForOf
   ]
 })
 export class ActorFormComponent {

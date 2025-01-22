@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, FormsModule, Validators} from '@angular/forms';
-import {NgIf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 import {ForbiddenNameDirective, forbiddenNameValidator} from '../shared/forbidden-name.directive';
 import {UnambiguousRoleDirective, unambiguousRoleValidator} from '../shared/unambiguous-role.directive';
 import {UniqueRoleValidator, UniqueRoleValidatorDirective} from '../shared/role.directive';
@@ -12,7 +12,8 @@ import {UniqueRoleValidator, UniqueRoleValidatorDirective} from '../shared/role.
     NgIf,
     ForbiddenNameDirective,
     UniqueRoleValidatorDirective,
-    UnambiguousRoleDirective
+    UnambiguousRoleDirective,
+    NgForOf
   ],
   templateUrl: './actor-form-template.component.html',
   styleUrl: './actor-form-template.component.css'
